@@ -13,19 +13,17 @@ function App() {
     fetch('https://www.meetup.com/data-science-ODSC-Birmingham/')
     .then(res => res.json())
     .then(data => {
-      setData(data)
-      // console.log(data);
+        setEventName(data.name);
+        setEventDescription(data.description);
+        setEventBooking(data.bookEvent);
+        setEventDate(data.eventDate);
+        setEventStartTime(data.eventStartTime);
+        setEventEndTime(data.eventEndTime);
+          // console.log(data);
     })
   }, []);
 
-  const setData = ({ name, description, bookEvent, dateTimeOfEvent }) => {
-    setEventName(name);
-    setEventDescription(description);
-    setEventBooking(bookEvent);
-    setEventDate(eventDate);
-    setEventStartTime(eventStartTime);
-    setEventEndTime(eventEndTime);
-  }
+ 
 
   return (
     <div className="App">
