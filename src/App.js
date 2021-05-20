@@ -5,7 +5,9 @@ function App() {
   const [eventName, setEventName] = useState('');
   const [eventDescription, setEventDescription] = useState('');
   const [eventBooking, setEventBooking] = useState('');
-  const [eventDateTime, setEventDateTime] = useState('');
+  const [eventDate, setEventDate] = useState('');
+  const [eventStartTime, setEventStartTime] = useState('');
+  const [eventEndTime, setEventEndTime] = useState('');
 
   useEffect(() => {
     fetch('https://www.meetup.com/data-science-ODSC-Birmingham/')
@@ -14,18 +16,27 @@ function App() {
       setData(data)
       // console.log(data);
     })
-  }, [])
+  }, []);
 
-  const setData = ({name, description, bookEvent, dateTimeOfEvent}) => {
+  const setData = ({ name, description, bookEvent, dateTimeOfEvent }) => {
     setEventName(name);
     setEventDescription(description);
     setEventBooking(bookEvent);
-    setEventDateTime(dateTimeOfEvent);
+    setEventDate(eventDate);
+    setEventStartTime(eventStartTime);
+    setEventEndTime(eventEndTime);
   }
 
   return (
     <div className="App">
       <h1>Testing MeetUp API</h1>
+      <hr />
+      <h2>{eventName}</h2>
+      <p>{eventDescription}</p>
+      <a href="https://www.meetup.com/data-science-ODSC-Birmingham/">{eventBooking}</a>
+      <h3>{eventDate}</h3>
+      <h4>{eventStartTime}</h4>
+      <h4>{eventEndTime}</h4>
     </div>
   );
 }
